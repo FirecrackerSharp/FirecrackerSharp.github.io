@@ -1,0 +1,8 @@
+site_name: FirecrackerSharp
+site_url: https://firecrackersharp.github.io
+theme:
+  name: material
+  features:
+  - navigation.instant
+  - navigation.instant.progress
+  - navigation.sections

@@ -47,7 +47,18 @@ _On a Windows host_, follow the instructions on how to assign a static local IP 
 
 After installing the VM, **enable nested virtualization for the VM** so that it has KVM access. This will depend on which hypervisor you're using. Then, run `lsmod | grep kvm` to ensure KVM is accessible inside the VM.
 
-## 3. WSL2 with nested virtualization and SSH
+## 3. A Linux bare metal server
+
+If it's your own hardware:
+
+1. Find the server's IP via `ip addr`
+2. Give it a static DHCP lease through the router
+3. Install an SSH server like shown in section 2
+4. Enable virtualization, install KVM like in preceding sections
+
+If you're using a cloud provider, [refer to Firecracker's development team's recommendations](https://github.com/firecracker-microvm/firecracker/blob/main/docs/dev-machine-setup.md#cloud). It'll cost a fair amount to get a bare metal server in the cloud, but it's generally worth it if you can.
+
+## 4. WSL2 with nested virtualization and SSH
 
 **Warning:** WSL is a pretty specific type of Linux VM and you may encounter issues using it for nested virtualization you wouldn't have with a conventional VM made in Hyper-V, VirtualBox or VMWare. If possible, opt for a traditional VM instead when running Windows. The WSL + SSH approach hasn't been thoroughly tested and we don't provide official support for it.
 
